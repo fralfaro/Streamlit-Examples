@@ -1,6 +1,6 @@
-# Clase de Streamlit: Creando Aplicaciones Web Interactivas
+# Streamlit
 
-## Introducción a Streamlit
+## Introducción 
 
 [Streamlit](https://streamlit.io/)  es una biblioteca de Python que ha revolucionado la forma en que los científicos de datos y desarrolladores pueden crear aplicaciones web interactivas con facilidad. A diferencia de las complejas herramientas de desarrollo web tradicionales, Streamlit se centra en la simplicidad y la eficiencia, permitiéndote convertir rápidamente tus análisis de datos, visualizaciones y modelos en aplicaciones web dinámicas y atractivas.
 
@@ -104,4 +104,4 @@ Una vez instalado, puedes crear tu primera aplicación en unos pocos pasos senci
    Una vez que ejecutes el comando, se abrirá una ventana en tu navegador con la aplicación que creaste.
 
 
-> **Nota**: más ejemplos de Streamlit en la siguiente [carpeta](examples)
+> **Nota**: más ejemplos de Streamlit en la siguiente [carpeta](examples).
