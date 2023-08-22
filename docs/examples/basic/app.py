@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 st.title('Análisis de Datos con Streamlit')
 
 # Cargar los datos (por ejemplo, un conjunto de datos sobre ventas)
-data = pd.read_csv('examples/basic/data.csv')
+data = pd.read_csv('docs/examples/basic/data.csv')
 
 # Sidebar para opciones de filtrado
 st.sidebar.header('Opciones de Filtrado')
