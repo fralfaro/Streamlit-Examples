@@ -1,0 +1,101 @@
+product_id,category,price,quantity
+1,Electronics,500,10
+2,Books,25,50
+3,Electronics,800,5
+4,Home & Kitchen,150,20
+5,Clothing,50,30
+6,Books,30,40
+7,Clothing,45,25
+8,Home & Kitchen,120,15
+9,Electronics,600,8
+10,Clothing,35,35
+11,Electronics,900,3
+12,Home & Kitchen,180,18
+13,Books,20,60
+14,Clothing,55,28
+15,Electronics,700,7
+16,Home & Kitchen,140,22
+17,Clothing,60,26
+18,Books,35,45
+19,Electronics,550,9
+20,Home & Kitchen,130,17
+21,Clothing,40,32
+22,Books,28,38
+23,Electronics,750,6
+24,Home & Kitchen,160,25
+25,Clothing,48,29
+26,Electronics,620,12
+27,Home & Kitchen,110,14
+28,Books,22,55
+29,Clothing,53,27
+30,Electronics,650,11
+31,Home & Kitchen,125,19
+32,Clothing,42,33
+33,Books,32,42
+34,Electronics,720,4
+35,Home & Kitchen,170,21
+36,Clothing,58,24
+37,Electronics,580,9
+38,Home & Kitchen,140,18
+39,Clothing,45,31
+40,Books,30,40
+41,Electronics,550,10
+42,Home & Kitchen,115,15
+43,Clothing,38,36
+44,Books,26,48
+45,Electronics,680,8
+46,Home & Kitchen,155,23
+47,Clothing,52,28
+48,Books,33,41
+49,Electronics,720,5
+50,Home & Kitchen,150,20
+51,Clothing,47,30
+52,Electronics,600,9
+53,Home & Kitchen,125,17
+54,Books,29,44
+55,Clothing,55,25
+56,Electronics,650,7
+57,Home & Kitchen,135,21
+58,Clothing,44,29
+59,Books,31,39
+60,Electronics,570,11
+61,Home & Kitchen,105,13
+62,Clothing,39,35
+63,Books,24,51
+64,Electronics,720,6
+65,Home & Kitchen,145,22
+66,Clothing,50,27
+67,Books,36,47
+68,Electronics,670,9
+69,Home & Kitchen,125,16
+70,Clothing,41,34
+71,Books,27,43
+72,Electronics,750,5
+73,Home & Kitchen,160,24
+74,Clothing,56,26
+75,Books,34,41
+76,Electronics,580,10
+77,Home & Kitchen,110,14
+78,Clothing,46,32
+79,Books,28,37
+80,Electronics,630,8
+81,Home & Kitchen,130,19
+82,Clothing,37,38
+83,Books,23,50
+84,Electronics,700,6
+85,Home & Kitchen,150,23
+86,Clothing,54,28
+87,Books,35,46
+88,Electronics,660,7
+89,Home & Kitchen,120,20
+90,Clothing,48,31
+91,Books,30,39
+92,Electronics,590,12
+93,Home & Kitchen,100,12
+94,Clothing,42,33
+95,Books,25,52
+96,Electronics,730,5
+97,Home & Kitchen,140,21
+98,Clothing,53,27
+99,Books,38,36
+100,Electronics,690,6
