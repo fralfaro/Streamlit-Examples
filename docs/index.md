@@ -1,6 +1,6 @@
 # Streamlit
 
-<img src="images/streamlit.svg" alt="Girl in a jacket" width="200">
+<img src="images/streamlit.png"  width="400">
 
 
 ## Introducción 
@@ -36,73 +36,55 @@ pip install streamlit
 
 ### Crear tu Primera Aplicación
 
-Una vez instalado, puedes crear tu primera aplicación en unos pocos pasos sencillos:
+Una vez instalado, puedes crear tu primera aplicación en unos pocos pasos sencillos.
+Vamos a crear un script de python llamado `app.py` con las siguientes intrucciones:
 
-1. **Importa la Biblioteca:**
-   Importa la biblioteca Streamlit al comienzo de tu script de Python:
 
-   ```python
-   import streamlit as st
-   ```
+```python
+import streamlit as st
+from sklearn import datasets
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style("whitegrid")
 
-2. **Script Sencillo:**
-   Utiliza las diversas funciones proporcionadas por Streamlit para crear elementos interactivos, como títulos, gráficos, sliders y más. Por ejemplo:
+# Título de la aplicación
+st.title('Ejemplo sencillo con Streamlit')
 
-   ```python
-   import streamlit as st
-   import pandas as pd
-   import numpy as np
-   import matplotlib.pyplot as plt
+# Cargar un conjunto de datos de ejemplo (Iris)
+iris = datasets.load_iris()
+iris_data = pd.DataFrame(iris.data, columns=iris.feature_names)
 
-   # Título de la aplicación
-   st.title('Análisis de Datos con Streamlit')
+# Mostrar los primeros registros del conjunto de datos
+st.subheader('Primeros registros del conjunto de datos:')
+st.dataframe(iris_data.head())
 
-   # Cargar los datos (por ejemplo, un conjunto de datos sobre ventas)
-   data = pd.read_csv('data.csv')
+# Mostrar descripción estadística del conjunto de datos
+st.subheader('Descripción estadística del conjunto de datos:')
+st.write(iris_data.describe())
 
-   # Sidebar para opciones de filtrado
-   st.sidebar.header('Opciones de Filtrado')
-   selected_category = st.sidebar.selectbox('Seleccionar Categoría', data['category'].unique())
+# Mostrar gráfico simple por columna
+st.subheader('Gráficos por columna:')
+for feature_name in iris.feature_names:
+    st.subheader(f'Gráfico de {feature_name}')
+    fig, ax = plt.subplots()
+    ax.hist(iris_data[feature_name], bins=20)
+    st.pyplot(fig)
 
-   # Filtrar datos por categoría seleccionada
-   filtered_data = data[data['category'] == selected_category]
+# Pie de página
+st.subheader('¡Fin del ejemplo!')
+st.write('Gracias por usar Streamlit.')
+```
 
-   # Mostrar los datos filtrados en una tabla
-   st.subheader('Datos Filtrados')
-   st.write(filtered_data)
+Ejecuta tu script de Python en la línea de comandos:
 
-   # Mostrar histograma de precios
-   st.subheader('Histograma de Precios')
-   fig, ax = plt.subplots()
-   hist_values, hist_bins = np.histogram(filtered_data['price'], bins=20)
-   plt.bar(hist_bins[:-1], hist_values, width=hist_bins[1] - hist_bins[0], color='blue', alpha=0.7)
-   plt.xlabel('Precio')
-   plt.ylabel('Frecuencia')
-   st.pyplot(fig)
+```bash
+streamlit run app.py
+```
 
-   # Mostrar gráfico de dispersión entre precio y cantidad
-   st.subheader('Gráfico de Dispersión')
-   fig, ax = plt.subplots()
-   plt.scatter(filtered_data['price'], filtered_data['quantity'], alpha=0.5, color='green')
-   plt.xlabel('Precio')
-   plt.ylabel('Cantidad')
-   st.pyplot(fig)
+Una vez que ejecutes el comando, se abrirá una ventana en tu navegador 
+con la aplicación que creaste.
 
-   # Mostrar resumen estadístico
-   st.subheader('Resumen Estadístico')
-   st.write(filtered_data.describe())
+<img src="images/demo.gif" >
 
-   # Agregar una nota final
-   st.markdown('¡Explora y analiza los datos utilizando las opciones y gráficos anteriores!')
-   ```
-
-3. **Ejecuta la Aplicación:**
-   Ejecuta tu script de Python en la línea de comandos:
-
-   ```bash
-   streamlit run app.py
-   ```
-
-4. **Visualiza tu Aplicación:**
-   Una vez que ejecutes el comando, se abrirá una ventana en tu navegador con la aplicación que creaste.
 
