@@ -14,16 +14,11 @@ alojarla en una plataforma de nube comercial, una opción es migrarla a
 
 En esta publicación, te mostraré cómo construir una aplicación de demostración y desplegarla en Community Cloud paso a paso:
 
-*   Paso 1. Crea una aplicación simple de Streamlit
-*   Paso 2. Configura una cuenta en Community Cloud
-*   Paso 3. Conecta tu cuenta a GitHub
-*   Paso 4. Crea un repositorio GitHub para tu aplicación
-*   Paso 5. Despliega tu aplicación en unos pocos clics
-
-¿No puedes esperar para verlo en acción? Aquí tienes
-la [aplicación de demostración](https://coding-hello.streamlit.app/?ref=blog.streamlit.io)
-y el [código del repositorio](https://github.com/coding-professor/st-hello-world/tree/main?ref=blog.streamlit.io).
-
+* Crea una aplicación simple de Streamlit
+* Configura una cuenta en Community Cloud
+* Conecta tu cuenta a GitHub
+* Crea un repositorio GitHub para tu aplicación
+Despliega tu aplicación en unos pocos clics
 
 ### Por qué desplegar tus aplicaciones en internet
 
