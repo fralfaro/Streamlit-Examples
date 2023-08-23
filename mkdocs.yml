@@ -85,11 +85,13 @@ plugins:
   - mkdocs-jupyter:
       kernel_name: python3
   - search
+  - mkdocs-video
 
 # TOC
 nav:
     - index.md
-    -  Ejemplos:
+    - Streamlit Cloud: app.md
+    - Ejemplos:
          - examples/basic/basic.ipynb
          - examples/iris/iris.ipynb
 

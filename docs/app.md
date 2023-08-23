@@ -3,7 +3,9 @@
 
 ![](https://blog.streamlit.io/content/images/2022/08/image--4-.svg)
 
-> **Nota**: El artículo original en inglés se encuentra disponible en [Host your Streamlit app for free](https://blog.streamlit.io/host-your-streamlit-app-for-free/#:~:text=Connect%20your%20account%20to%20GitHub,-There%20are%20two&text=On%20the%20authorization%20page%2C%20click%20on%20%E2%80%9CAuthorize%20streamlit.%22&text=This%20will%20let%20Community%20Cloud,%2C%20click%20%E2%80%9CAuthorize%20streamlit.%22&text=Now%20you're%20ready%20to%20deploy%20Streamlit%20apps!).
+> **Nota**: Los artículos originales (en inglés) se encuentra disponible en:
+> - [Host your Streamlit app for free](https://blog.streamlit.io/host-your-streamlit-app-for-free/#:~:text=Connect%20your%20account%20to%20GitHub,-There%20are%20two&text=On%20the%20authorization%20page%2C%20click%20on%20%E2%80%9CAuthorize%20streamlit.%22&text=This%20will%20let%20Community%20Cloud,%2C%20click%20%E2%80%9CAuthorize%20streamlit.%22&text=Now%20you're%20ready%20to%20deploy%20Streamlit%20apps!).
+> - [streamlit-community-cloud/get-started/quickstart](https://docs.streamlit.io/streamlit-community-cloud/get-started/quickstart).
 
 Si tienes una aplicación de Streamlit pero no deseas pagar una tarifa mensual para
 alojarla en una plataforma de nube comercial, una opción es migrarla a 
@@ -53,128 +55,70 @@ Aquí tienes por qué podrías querer usar Community Cloud para alojar tus aplic
 
 
 
-### Paso 1. Crea una aplicación simple de Streamlit
+## Inicio rápido
 
-Primero, creemos una aplicación sencilla que imprima `¡Hola mundo!`. Solo se necesitan dos líneas de código (para profundizar, lee [este artículo](https://blog.streamlit.io/how-to-master-streamlit-for-data-science/)).
+Aquí tienes un conjunto conciso de pasos para crear tu cuenta en Streamlit Community Cloud y desplegar una aplicación de ejemplo. Para otras opciones y explicaciones completas, comienza con [Crea tu cuenta](/streamlit-community-cloud/get-started/create-your-account).
 
-Crea un archivo `streamlit_app.py`:
+Durante este proceso, iniciarás sesión en tus cuentas de Google y GitHub. Si aún no tienes estas cuentas, puedes crearlas antes de comenzar. Si no deseas usar una cuenta de Google, puedes [crear tu cuenta con cualquier correo electrónico](/streamlit-community-cloud/get-started/create-your-account#primary-identity-option-2-email).
 
-```python
-import streamlit as st
-
-st.write('¡Hola mundo!')
-```
-
-### Paso 2. Configura una cuenta en Community Cloud
-
-Ve a [Community Cloud](https://streamlit.io/cloud?ref=blog.streamlit.io) y haz clic en "Registrarse" para crear una cuenta gratuita con tu cuenta existente de Google, GitHub o correo electrónico:
-
-![Registrarse en Community Cloud](https://blog.streamlit.io/content/images/2022/08/324BEA1A-997C-49E7-A279-040300162E27.jpeg#browser)
-
-Luego, ingresa tus credenciales de GitHub y haz clic en "Autorizar streamlit" para permitir que Streamlit acceda a tu cuenta de GitHub:
-
-![Autorizar streamlit en GitHub](https://blog.streamlit.io/content/images/2022/08/40F6254E-3523-4ADE-B9B6-D4436FE8B68A.jpeg#browser)
-
-Finalmente, ingresa tu información y haz clic en "Continuar":
-
-![Ingresar información en Community Cloud](https://blog.streamlit.io/content/images/2022/08/2B353264-DDBA-4251-94E4-7CF77A256B9B.jpeg#browser)
-
-¡Felicitaciones! Te has registrado en tu espacio de trabajo en Community Cloud.
-
-### Paso 3. Conecta tu cuenta a GitHub
-
-Hay dos opciones para conectar tu cuenta de Community Cloud a GitHub:
-
-**Opción 1**
-
-Haz clic en "Nueva aplicación":
-
-![Nueva aplicación en Community Cloud](https://blog.streamlit.io/content/images/2022/08/6FD187E5-2A74-4205-97B9-E19890E6C741.jpeg#browser)
-
-En la página de autorización, haz clic en "Autorizar streamlit".
-
-**Opción 2**
-
-Haz clic en "Configuración", luego en "Cuentas vinculadas" y después en "Permitir acceso":
-
-![Vincular cuenta en Community Cloud](https://blog.streamlit.io/content/images/2022/08/F2A5148A-2F6F-48D2-B935-A38542A87468.jpeg#browser)
-
-Esto permitirá que Community Cloud despliegue tus aplicaciones de Streamlit desde tus repositorios de GitHub. En la página de autorización, haz clic en "Autorizar streamlit".
-
-**Cuenta vinculada a GitHub**
-
-Una vez que inicies sesión, Community Cloud obtendrá acceso a tu cuenta de GitHub:
-
-![Cuenta vinculada a GitHub en Community Cloud](https://blog.streamlit.io/content/images/2022/08/16FA6767-9630-4C65-869D-77E2B2FC4199.jpeg#browser)
-
-¡Ahora estás listo para desplegar aplicaciones de Streamlit!
-
-Pero primero, creemos un repositorio en GitHub.
-
-### Paso 4. Crea un repositorio GitHub para tu aplicación
-
-Haz clic en "+" y luego en "Nuevo repositorio":
-
-![Nuevo repositorio en GitHub](https://blog.streamlit.io/content/images/2022/08/A15327B7-F711-448A-BB97-A1CF2580BBC7.jpeg#browser)
-
-Esto te llevará a la página "Crear un nuevo repositorio".
-
-En el campo "Nombre del repositorio", escribe `st-hello-world`, haz clic en "Público", marca "Agregar un archivo README" (tu nuevo repositorio tendrá un archivo `README.md`) y haz clic en "Crear repositorio":
-
-![Crear repositorio en GitHub](https://blog.streamlit.io/content/images/2022/08/1F88C1F7-893E-432D-9E7B-AEFD23D4D0B3.jpeg#browser)
-
-¡Tu repositorio está listo!
-
-Ahora crea el archivo de tu aplicación:
-
-![Crea tu archivo de aplicación en GitHub](https://blog.streamlit.io/content/images/2022/08/7A37797E-C57A-4560-8104-790FA5537DEF.jpeg#browser)
-
-Luego, crea el archivo `streamlit_app.py`:
-
-![Crea el archivo streamlit_app.py en GitHub](https://blog.streamlit.io/content/images/2022/08/1825A4E6-9D5C-43DF-A4E3-DCC3FE2A5F37.jpeg#browser)
-
-Tu repositorio de GitHub estará poblado con los archivos `README.md` y `streamlit_app.py`.
-
-Después, regresa a Community Cloud:
-
-![Vuelve a Community Cloud](https://blog.streamlit.io/content/images/2022/08/72631AEA-B0B9-412E-BA7C-06B3382855FA.jpeg#browser)
-
-### Paso 5. Despliega tu aplicación en unos pocos clics
-
-Finalmente, aquí viene la parte divertida. ¡Puedes desplegar tu aplicación!
-
-Haz clic en "Nueva aplicación" y completa la información de tu aplicación:
-
-![Nueva aplicación en Community Cloud](https://blog.streamlit.io/content/images/2022/08/9E0C7298-B079-4074-9DBB-EE9C04D14C31.jpeg#browser)
-
-Esto creará un nuevo servidor. Verás el mensaje "Tu aplicación está en el horno".
-
-En la esquina inferior derecha, haz clic en "Administrar aplicación" para ver los mensajes de registro (úsalos para depurar y solucionar errores):
-
-![Administrar aplicación en Community Cloud](https://blog.streamlit.io/content/images/2022/08/EE1466B0-0A0C-4BD9-8B1E-02A37A380CF4.jpeg#browser)
-
-El menú lateral muestra todos los mensajes de registro en tiempo real:
-
-![Mensajes de registro en tiempo real en Community Cloud](https://blog.streamlit.io/content/images/2022/08/153F5C49-8CDC-4B1E-AFAE-AECC7AA4F849.jpeg#browser)
-
-Una vez que tu aplicación termine de compilar, verás la salida. En nuestro ejemplo, será un mensaje simple: `¡Hola mundo!`
-
-![Salida de la aplicación en Community Cloud](https://blog.streamlit.io/content/images/2022/08/IMG_0430.png#browser)
-
-### Conclusión
-
-¡Felicidades! Has desplegado exitosamente tu aplicación en Streamlit Community Cloud. Ahora puedes compartir la [URL de la aplicación](https://coding-professor-st-hello-world-streamlit-app-qj9a1u.streamlitapp.com/?ref=blog.streamlit.io) con la comunidad.
-
-Si prefieres un video tutorial, echa un vistazo al siguiente video:
-
-[<img src="https://i.ytimg.com/vi/HKoOBiAaHGg/maxresdefault.jpg" alt="Italian Trulli">](https://www.youtube.com/watch?v=HKoOBiAaHGg&ab_channel=Streamlit)
+### Registrarse
 
 
+1.  Ve a [share.streamlit.io/signup](https://share.streamlit.io/signup).
+2.  Haz clic en "**Continue with Google**".
+
+    ![Registrarse en Streamlit Community Cloud con Google](https://docs.streamlit.io/images/streamlit-community-cloud/sign-up-Google-XL.png)
+
+3.  Ingresa tus credenciales de Google y sigue las indicaciones de autenticación de Google.
+4.  Después de autenticar con Google, haz clic en "**Authorize streamlit**".
+
+    ![Conectar tu cuenta de GitHub a Streamlit Community Cloud](https://docs.streamlit.io/images/streamlit-community-cloud/sign-up-2.png)
+
+5.  Ingresa tus credenciales de GitHub y sigue las indicaciones de autenticación de GitHub.
+6.  Haz clic en "**Autorizar streamlit**".
+
+    ![Autorizar a streamlit a conectar con tu cuenta de GitHub](https://docs.streamlit.io/images/streamlit-community-cloud/GitHub-auth1-none.png)
+
+7.  Para finalizar, completa tu información y haz clic en "**Continue**" en la parte inferior de la pantalla.
+
+    ![Configura tu cuenta en Streamlit Community Cloud](https://docs.streamlit.io/images/streamlit-community-cloud/sign-up-3.png)
+
+8.  Serás llevado a tu espacio de trabajo en Streamlit. Si ves un ícono de advertencia (⚠️) junto a "**Settings**" en la esquina superior derecha, esto se resolverá en los siguientes pasos.
+
+    ![Tu nuevo espacio de trabajo en Streamlit Community Cloud](https://docs.streamlit.io/images/streamlit-community-cloud/workspace-empty-warning.png)
+
+### Fork a una app de ejemplo
+
+9.  Haz clic en la flecha hacia abajo (_expand\_more_) para desplegar las opciones debajo de "**New App**".
+
+    ![Opciones para desplegar una nueva app desde tu espacio de trabajo en Streamlit Community Cloud](https://docs.streamlit.io/images/streamlit-community-cloud/deploy-example-1.png)
+
+10.  Haz clic en "**Create from sample app template**".
+
+    ![Despliega una nueva app desde una plantilla de app de ejemplo](https://docs.streamlit.io/images/streamlit-community-cloud/deploy-example-2.png)
+
+11.  Se te pedirá que "Streamlit solicita permisos adicionales". Haz clic en "**Authorize streamlit"**".
+
+    ![Autoriza a streamlit a acceder a repositorios privados](https://docs.streamlit.io/images/streamlit-community-cloud/GitHub-auth2-none.png)
+
+12.  Haz clic en "**Fork sample app**".
+
+    ![Duplica la app de ejemplo de Streamlit](https://docs.streamlit.io/images/streamlit-community-cloud/deploy-example-fork.png)
+
+### Despliega una app de ejemplo
 
 
-Lee más sobre:
+13.  Después de que el repositorio se copie a tu cuenta de GitHub, la información del repositorio duplicado se llenará automáticamente en una pantalla de despliegue. Haz clic en "**¡Deploy!**"
 
-* [Self-hosting ](https://docs.streamlit.io/knowledge-base/deploy/deploy-streamlit-heroku-aws-google-cloud?ref=blog.streamlit.io) de aplicaciones Streamlit en tus propios servidores (AWS, Azure, etc.).
-* Diferentes [casos de uso de Streamlit](https://blog.streamlit.io/tag/community/) de la comunidad.
+     ![Despliega tu app de ejemplo de Streamlit](https://docs.streamlit.io/images/streamlit-community-cloud/deploy-example-deploy.png)
+
+14.  Espera a que la app se compile. Esto puede llevar unos minutos.
+
+     ![Observa cómo se compila y despliega tu app](https://docs.streamlit.io/images/streamlit-community-cloud/deploy-demo-provisioning.png)
+
+### ¡Has terminado!
 
 
+¡Felicidades! Acabas de desplegar una app en Streamlit Community Cloud. 🎉 Puede que la app tarde unos minutos en compilar completamente, pero una vez que esté lista, se cargará automáticamente.
+
+![Observa tu app de Streamlit desplegada](https://docs.streamlit.io/images/streamlit-community-cloud/deploy-example-done.png)
