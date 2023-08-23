@@ -89,6 +89,8 @@ plugins:
 # TOC
 nav:
     - index.md
+    -  Ejemplos:
+         - examples/basic/basic.ipynb
 
 
 

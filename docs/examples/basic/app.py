@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style("whitegrid")
 
 # Título de la aplicación
 st.title('Análisis de Datos con Streamlit')
 
 # Cargar los datos (por ejemplo, un conjunto de datos sobre ventas)
-data = pd.read_csv('docs/examples/basic/data.csv')
+data = pd.read_csv('https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/basic/data.csv')
 
 # Sidebar para opciones de filtrado
 st.sidebar.header('Opciones de Filtrado')
