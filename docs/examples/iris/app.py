@@ -59,7 +59,7 @@ col1, col2, col3 = st.columns(3)  # Dividir el espacio horizontal en tres column
 
 # Mostrar las imágenes en las columnas
 with col1:
-    st.image(setosa_image, caption='Flor 1', width=200)
+    st.image(setosa_image, caption='Iris Setosa', width=200)
 
 with col2:
     st.image(versicolor_image, caption='Iris Versicolor',  width=200)
