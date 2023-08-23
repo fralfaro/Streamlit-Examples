@@ -4,7 +4,9 @@ import pandas as pd
 from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
 import seaborn as sns
-from PIL import Image  # Importar la clase Image de la biblioteca Python Imaging Library (PIL)
+from PIL import Image  
+import requests
+from io import BytesIO
 
 # Cargar el conjunto de datos Iris
 iris = load_iris()
@@ -13,9 +15,25 @@ iris_df['target'] = iris.target
 iris_df['target_name'] = iris.target_names[iris.target]
 
 # Cargar imágenes de flores Iris
-setosa_image = Image.open('images/setosa.jpg')  # Asegúrate de tener las imágenes en la misma ubicación que este archivo
-versicolor_image = Image.open('images/versicolor.jpg')
-virginica_image = Image.open('images/virginica.jpg')
+
+# setosa
+image_url = 'https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/setosa.jpg'
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+setosa_image = Image.open(image_data) 
+
+# versicolor
+image_url = 'https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/versicolor.jpg'
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+versicolor_image = Image.open(image_data)
+
+# virginica
+image_url = 'https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/virginica.jpg'
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+virginica_image = Image.open(image_data) 
+
 
 
 # Cargar el conjunto de datos Iris
