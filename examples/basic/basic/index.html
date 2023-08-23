@@ -1389,29 +1389,43 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><a href="https://colab.research.google.com/github/fralfaro/Streamlit-Examples/blob/main/docs/examples/basic/basic.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
-<h1 id="basic">Basic<a class="anchor-link" href="#basic">&#182;</a></h1><p><strong>Nota Importante para Ejecutar el Ejemplo en Google Colab</strong></p>
-<p>Si deseas ejecutar este ejemplo en <a href="https://colab.research.google.com/">Google Colab</a>, sigue estos pasos detallados a continuación:</p>
-<ol>
-<li>Ejecuta la siguiente celda para instalar las librerías necesarias:</li>
-</ol>
+<h1 id="basic">Basic<a class="anchor-link" href="#basic">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div style="border: 1px solid #000; background-color: #fff; color: #000; padding: 10px; display: flex; align-items: center;">
+    <img src="https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/images/info_icon.png" width="100" style="margin-right: 10px;">
+    <div>
+        <strong>Nota</strong><br>
+        Si deseas ejecutar este ejemplo en <a href="https://colab.research.google.com/" target="_blank">Google Colab</a>, sigue estos pasos detallados a continuación:
+    </div>
+</div><ol>
+<li><p>Ejecuta la siguiente celda para instalar las librerías necesarias:</p>
 <div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">streamlit</span>
 </pre></div>
-<ol>
-<li>Luego, crea tu aplicación ejecutando la siguiente celda:</li>
-</ol>
+</li>
+<li><p>Luego, crea tu aplicación ejecutando la siguiente celda:</p>
 <div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">writefile</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span>
-<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="c1"># ... (resto de tu código)</span>
+ <span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>
+ <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+ <span class="c1"># ... (resto de tu código)</span>
 </pre></div>
-<ol>
-<li>Finalmente, inicia tu aplicación ejecutando esta celda:</li>
-</ol>
+</li>
+<li><p>Finalmente, inicia tu aplicación ejecutando esta celda:</p>
 <div class="highlight"><pre><span></span><span class="err">!</span><span class="n">streamlit</span> <span class="n">run</span> <span class="n">app</span><span class="o">.</span><span class="n">py</span> <span class="o">&amp;</span> <span class="n">npx</span> <span class="n">localtunnel</span> <span class="o">--</span><span class="n">port</span> <span class="mi">8501</span>
 </pre></div>
 <p><img src="https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/images/img_01.png" alt="Ejemplo de Imagen"></p>
-<p>Después de ejecutar los pasos anteriores, haz clic en el enlace "<strong>your url is: ...</strong>" (por ejemplo, <em><a href="https://soft-drinks-type.loca.lt">https://soft-drinks-type.loca.lt</a></em>). En la ventana que se abre, introduce los números de la sección "<strong>External URL: ...</strong>" (por ejemplo, <em>35.230.186.60</em>).</p>
+<p>Después de ejecutar los pasos anteriores, haz clic en el enlace "<strong>your url is: ...</strong>" (por ejemplo, <em><a href="https://major-weeks-clap.loca.lt">https://major-weeks-clap.loca.lt</a></em>). En la ventana que se abre, introduce los números de la sección "<strong>External URL: ...</strong>" (por ejemplo, <strong>35.230.186.60</strong>).</p>
 <p><img src="https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/images/img_02.png" alt="Ejemplo de Imagen"></p>
+</li>
+</ol>
 
 </div>
 </div>
@@ -1605,6 +1619,19 @@ st.markdown('¡Explora y analiza los datos utilizando las opciones y gráficos a
 </div>
 </div>
 
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>La aplicación debería lucir como</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/images/demo.gif" ></p>
+
+</div>
+</div>
 </div>
 </div>
 </div>

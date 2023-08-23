@@ -1385,19 +1385,9 @@ Licensed under the Apache License, Version 2.0.
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Librerias</span>
-<span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># para simular el tiempo real, bucle de tiempo</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># np significa &quot;numpy&quot; para cálculos numéricos</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># para leer CSV y manipulación de DataFrames</span>
-<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>  <span class="c1"># gráficos interactivos</span>
-<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>  <span class="c1"># desarrollo de aplicaciones web de datos 🎈</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div id="cell-1" class="clipboard-copy-txt"># Librerias
-import time  # para simular el tiempo real, bucle de tiempo
-import numpy as np  # np significa "numpy" para cálculos numéricos
-import pandas as pd  # para leer CSV y manipulación de DataFrames
-import plotly.express as px  # gráficos interactivos
-import streamlit as st  # desarrollo de aplicaciones web de datos 🎈</div>
+<div id="cell-1" class="clipboard-copy-txt"></div>
     
         </div>
     </div>
@@ -1427,19 +1417,19 @@ import streamlit as st  # desarrollo de aplicaciones web de datos 🎈</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Configuración de la página</span>
-<span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span>
-    <span class="n">page_title</span><span class="o">=</span><span class="s2">&quot;Panel de Control de Ciencia de Datos en Tiempo Real&quot;</span><span class="p">,</span>
-    <span class="n">page_icon</span><span class="o">=</span><span class="s2">&quot;✅&quot;</span><span class="p">,</span>
-    <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;wide&quot;</span><span class="p">,</span>
-<span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Librerias</span>
+<span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># para simular el tiempo real, bucle de tiempo</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># np significa &quot;numpy&quot; para cálculos numéricos</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>  <span class="c1"># para leer CSV y manipulación de DataFrames</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>  <span class="c1"># gráficos interactivos</span>
+<span class="kn">import</span> <span class="nn">streamlit</span> <span class="k">as</span> <span class="nn">st</span>  <span class="c1"># desarrollo de aplicaciones web de datos 🎈</span>
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt"># Configuración de la página
-st.set_page_config(
-    page_title="Panel de Control de Ciencia de Datos en Tiempo Real",
-    page_icon="✅",
-    layout="wide",
-)</div>
+<div id="cell-2" class="clipboard-copy-txt"># Librerias
+import time  # para simular el tiempo real, bucle de tiempo
+import numpy as np  # np significa "numpy" para cálculos numéricos
+import pandas as pd  # para leer CSV y manipulación de DataFrames
+import plotly.express as px  # gráficos interactivos
+import streamlit as st  # desarrollo de aplicaciones web de datos 🎈</div>
     
         </div>
     </div>
@@ -1469,11 +1459,19 @@ st.set_page_config(
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># URL del conjunto de datos en formato CSV</span>
-<span class="n">dataset_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Lexie88rus/bank-marketing-analysis/master/bank.csv&quot;</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Configuración de la página</span>
+<span class="n">st</span><span class="o">.</span><span class="n">set_page_config</span><span class="p">(</span>
+    <span class="n">page_title</span><span class="o">=</span><span class="s2">&quot;Panel de Control de Ciencia de Datos en Tiempo Real&quot;</span><span class="p">,</span>
+    <span class="n">page_icon</span><span class="o">=</span><span class="s2">&quot;✅&quot;</span><span class="p">,</span>
+    <span class="n">layout</span><span class="o">=</span><span class="s2">&quot;wide&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt"># URL del conjunto de datos en formato CSV
-dataset_url = "https://raw.githubusercontent.com/Lexie88rus/bank-marketing-analysis/master/bank.csv"</div>
+<div id="cell-3" class="clipboard-copy-txt"># Configuración de la página
+st.set_page_config(
+    page_title="Panel de Control de Ciencia de Datos en Tiempo Real",
+    page_icon="✅",
+    layout="wide",
+)</div>
     
         </div>
     </div>
@@ -1503,15 +1501,11 @@ dataset_url = "https://raw.githubusercontent.com/Lexie88rus/bank-marketing-analy
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Función para obtener los datos desde la URL del conjunto de datos</span>
-<span class="nd">@st</span><span class="o">.</span><span class="n">cache_data</span>  <span class="c1"># Utiliza caché para evitar cargar los datos repetidamente</span>
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataset_url</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># URL del conjunto de datos en formato CSV</span>
+<span class="n">dataset_url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Lexie88rus/bank-marketing-analysis/master/bank.csv&quot;</span>
 </pre></div>
-<div id="cell-4" class="clipboard-copy-txt"># Función para obtener los datos desde la URL del conjunto de datos
-@st.cache_data  # Utiliza caché para evitar cargar los datos repetidamente
-def get_data() -> pd.DataFrame:
-    return pd.read_csv(dataset_url)</div>
+<div id="cell-4" class="clipboard-copy-txt"># URL del conjunto de datos en formato CSV
+dataset_url = "https://raw.githubusercontent.com/Lexie88rus/bank-marketing-analysis/master/bank.csv"</div>
     
         </div>
     </div>
@@ -1541,9 +1535,15 @@ def get_data() -> pd.DataFrame:
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>  <span class="c1"># Carga los datos en un DataFrame</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Función para obtener los datos desde la URL del conjunto de datos</span>
+<span class="nd">@st</span><span class="o">.</span><span class="n">cache_data</span>  <span class="c1"># Utiliza caché para evitar cargar los datos repetidamente</span>
+<span class="k">def</span> <span class="nf">get_data</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataset_url</span><span class="p">)</span>
 </pre></div>
-<div id="cell-5" class="clipboard-copy-txt">df = get_data()  # Carga los datos en un DataFrame</div>
+<div id="cell-5" class="clipboard-copy-txt"># Función para obtener los datos desde la URL del conjunto de datos
+@st.cache_data  # Utiliza caché para evitar cargar los datos repetidamente
+def get_data() -> pd.DataFrame:
+    return pd.read_csv(dataset_url)</div>
     
         </div>
     </div>
@@ -1573,11 +1573,9 @@ def get_data() -> pd.DataFrame:
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Título del panel de control</span>
-<span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Panel de Control de Ciencia de Datos en Tiempo Real / Vivo&quot;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">()</span>  <span class="c1"># Carga los datos en un DataFrame</span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt"># Título del panel de control
-st.title("Panel de Control de Ciencia de Datos en Tiempo Real / Vivo")</div>
+<div id="cell-6" class="clipboard-copy-txt">df = get_data()  # Carga los datos en un DataFrame</div>
     
         </div>
     </div>
@@ -1607,11 +1605,11 @@ st.title("Panel de Control de Ciencia de Datos en Tiempo Real / Vivo")</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Filtros de nivel superior</span>
-<span class="n">job_filter</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Seleccionar el Trabajo&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">]))</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Título del panel de control</span>
+<span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Panel de Control de Ciencia de Datos en Tiempo Real / Vivo&quot;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-7" class="clipboard-copy-txt"># Filtros de nivel superior
-job_filter = st.selectbox("Seleccionar el Trabajo", pd.unique(df["job"]))</div>
+<div id="cell-7" class="clipboard-copy-txt"># Título del panel de control
+st.title("Panel de Control de Ciencia de Datos en Tiempo Real / Vivo")</div>
     
         </div>
     </div>
@@ -1641,11 +1639,11 @@ job_filter = st.selectbox("Seleccionar el Trabajo", pd.unique(df["job"]))</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Creando un contenedor con un solo elemento</span>
-<span class="n">placeholder</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Filtros de nivel superior</span>
+<span class="n">job_filter</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s2">&quot;Seleccionar el Trabajo&quot;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">]))</span>
 </pre></div>
-<div id="cell-8" class="clipboard-copy-txt"># Creando un contenedor con un solo elemento
-placeholder = st.empty()</div>
+<div id="cell-8" class="clipboard-copy-txt"># Filtros de nivel superior
+job_filter = st.selectbox("Seleccionar el Trabajo", pd.unique(df["job"]))</div>
     
         </div>
     </div>
@@ -1675,11 +1673,11 @@ placeholder = st.empty()</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Filtrado del DataFrame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">job_filter</span><span class="p">]</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Creando un contenedor con un solo elemento</span>
+<span class="n">placeholder</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">empty</span><span class="p">()</span>
 </pre></div>
-<div id="cell-9" class="clipboard-copy-txt"># Filtrado del DataFrame
-df = df[df["job"] == job_filter]</div>
+<div id="cell-9" class="clipboard-copy-txt"># Creando un contenedor con un solo elemento
+placeholder = st.empty()</div>
     
         </div>
     </div>
@@ -1700,6 +1698,40 @@ df = df[df["job"] == job_filter]</div>
         <div class="CodeMirror cm-s-jupyter">
         <div class="zeroclipboard-container">
             <clipboard-copy for="cell-10">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Filtrado del DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;job&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">job_filter</span><span class="p">]</span>
+</pre></div>
+<div id="cell-10" class="clipboard-copy-txt"># Filtrado del DataFrame
+df = df[df["job"] == job_filter]</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-11">
             <div>
                 <span class="notice" hidden>Copied!</span>
                 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
@@ -1768,7 +1800,7 @@ df = df[df["job"] == job_filter]</div>
         <span class="n">st</span><span class="o">.</span><span class="n">dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Simula la actualización en tiempo real</span>
 </pre></div>
-<div id="cell-10" class="clipboard-copy-txt"># Simulación de datos en tiempo real cercano / en vivo
+<div id="cell-11" class="clipboard-copy-txt"># Simulación de datos en tiempo real cercano / en vivo
 for seconds in range(200):  # Bucle para simular 200 unidades de tiempo
 
     # Generación de datos simulados para "age_new" y "balance_new"
