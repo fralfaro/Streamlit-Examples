@@ -85,7 +85,6 @@ plugins:
   - mkdocs-jupyter:
       kernel_name: python3
   - search
-  - mkdocs-video
 
 # TOC
 nav:
