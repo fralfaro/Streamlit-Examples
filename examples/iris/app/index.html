@@ -281,6 +281,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iris/" class="md-nav__link">
+        Iris
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1377,7 +1391,9 @@ Licensed under the Apache License, Version 2.0.
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># Importar la clase Image de la biblioteca Python Imaging Library (PIL)</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
 </pre></div>
 <div id="cell-1" class="clipboard-copy-txt"># Librerias
 import streamlit as st
@@ -1385,7 +1401,9 @@ import pandas as pd
 from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
 import seaborn as sns
-from PIL import Image  # Importar la clase Image de la biblioteca Python Imaging Library (PIL)</div>
+from PIL import Image  
+import requests
+from io import BytesIO</div>
     
         </div>
     </div>
@@ -1434,6 +1452,18 @@ iris_df['target_name'] = iris.target_names[iris.target]</div>
 </div>
 
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Cargar imágenes de flores Iris</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
@@ -1455,15 +1485,17 @@ iris_df['target_name'] = iris.target_names[iris.target]</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Cargar imágenes de flores Iris</span>
-<span class="n">setosa_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;images/setosa.jpg&#39;</span><span class="p">)</span>  <span class="c1"># Asegúrate de tener las imágenes en la misma ubicación que este archivo</span>
-<span class="n">versicolor_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;images/versicolor.jpg&#39;</span><span class="p">)</span>
-<span class="n">virginica_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;images/virginica.jpg&#39;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># setosa</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/setosa.jpg&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">setosa_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt"># Cargar imágenes de flores Iris
-setosa_image = Image.open('images/setosa.jpg')  # Asegúrate de tener las imágenes en la misma ubicación que este archivo
-versicolor_image = Image.open('images/versicolor.jpg')
-virginica_image = Image.open('images/virginica.jpg')</div>
+<div id="cell-3" class="clipboard-copy-txt"># setosa
+image_url = 'https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/setosa.jpg'
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+setosa_image = Image.open(image_data) </div>
     
         </div>
     </div>
@@ -1493,17 +1525,17 @@ virginica_image = Image.open('images/virginica.jpg')</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Cargar el conjunto de datos Iris</span>
-<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
-<span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
-<span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
-<span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;target_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># versicolor</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/versicolor.jpg&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">versicolor_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
 </pre></div>
-<div id="cell-4" class="clipboard-copy-txt"># Cargar el conjunto de datos Iris
-iris = load_iris()
-iris_df = pd.DataFrame(iris.data, columns=iris.feature_names)
-iris_df['target'] = iris.target
-iris_df['target_name'] = iris.target_names[iris.target]</div>
+<div id="cell-4" class="clipboard-copy-txt"># versicolor
+image_url = 'https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/versicolor.jpg'
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+versicolor_image = Image.open(image_data)</div>
     
         </div>
     </div>
@@ -1533,9 +1565,17 @@ iris_df['target_name'] = iris.target_names[iris.target]</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># virginica</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/virginica.jpg&#39;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+<span class="n">image_data</span> <span class="o">=</span> <span class="n">BytesIO</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">virginica_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_data</span><span class="p">)</span>
 </pre></div>
-<div id="cell-5" class="clipboard-copy-txt"></div>
+<div id="cell-5" class="clipboard-copy-txt"># virginica
+image_url = 'https://raw.githubusercontent.com/fralfaro/Streamlit-Examples/main/docs/examples/iris/images/virginica.jpg'
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+virginica_image = Image.open(image_data) </div>
     
         </div>
     </div>
@@ -1565,11 +1605,9 @@ iris_df['target_name'] = iris.target_names[iris.target]</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Título de la aplicación</span>
-<span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Explorador de Datos Iris&#39;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt"># Título de la aplicación
-st.title('Explorador de Datos Iris')</div>
+<div id="cell-6" class="clipboard-copy-txt"></div>
     
         </div>
     </div>
@@ -1599,11 +1637,17 @@ st.title('Explorador de Datos Iris')</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Encabezado</span>
-<span class="n">st</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Conjunto de Datos Iris&#39;</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Cargar el conjunto de datos Iris</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">iris_df</span><span class="p">[</span><span class="s1">&#39;target_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">]</span>
 </pre></div>
-<div id="cell-7" class="clipboard-copy-txt"># Encabezado
-st.header('Conjunto de Datos Iris')</div>
+<div id="cell-7" class="clipboard-copy-txt"># Cargar el conjunto de datos Iris
+iris = load_iris()
+iris_df = pd.DataFrame(iris.data, columns=iris.feature_names)
+iris_df['target'] = iris.target
+iris_df['target_name'] = iris.target_names[iris.target]</div>
     
         </div>
     </div>
@@ -1633,11 +1677,9 @@ st.header('Conjunto de Datos Iris')</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar una tabla con los primeros registros del conjunto de datos</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">iris_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span>
 </pre></div>
-<div id="cell-8" class="clipboard-copy-txt"># Mostrar una tabla con los primeros registros del conjunto de datos
-st.write(iris_df.head())</div>
+<div id="cell-8" class="clipboard-copy-txt"></div>
     
         </div>
     </div>
@@ -1667,13 +1709,11 @@ st.write(iris_df.head())</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar imágenes de las flores Iris en una fila</span>
-<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Imágenes de Flores Iris&#39;</span><span class="p">)</span>
-<span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Dividir el espacio horizontal en tres columnas</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Título de la aplicación</span>
+<span class="n">st</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Explorador de Datos Iris&#39;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-9" class="clipboard-copy-txt"># Mostrar imágenes de las flores Iris en una fila
-st.subheader('Imágenes de Flores Iris')
-col1, col2, col3 = st.columns(3)  # Dividir el espacio horizontal en tres columnas</div>
+<div id="cell-9" class="clipboard-copy-txt"># Título de la aplicación
+st.title('Explorador de Datos Iris')</div>
     
         </div>
     </div>
@@ -1703,13 +1743,11 @@ col1, col2, col3 = st.columns(3)  # Dividir el espacio horizontal en tres column
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar las imágenes en las columnas</span>
-<span class="k">with</span> <span class="n">col1</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">setosa_image</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Iris Setosa&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Encabezado</span>
+<span class="n">st</span><span class="o">.</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Conjunto de Datos Iris&#39;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-10" class="clipboard-copy-txt"># Mostrar las imágenes en las columnas
-with col1:
-    st.image(setosa_image, caption='Iris Setosa', width=200)</div>
+<div id="cell-10" class="clipboard-copy-txt"># Encabezado
+st.header('Conjunto de Datos Iris')</div>
     
         </div>
     </div>
@@ -1739,11 +1777,11 @@ with col1:
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">with</span> <span class="n">col2</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">versicolor_image</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Iris Versicolor&#39;</span><span class="p">,</span>  <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar una tabla con los primeros registros del conjunto de datos</span>
+<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">iris_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
-<div id="cell-11" class="clipboard-copy-txt">with col2:
-    st.image(versicolor_image, caption='Iris Versicolor',  width=200)</div>
+<div id="cell-11" class="clipboard-copy-txt"># Mostrar una tabla con los primeros registros del conjunto de datos
+st.write(iris_df.head())</div>
     
         </div>
     </div>
@@ -1773,11 +1811,13 @@ with col1:
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">with</span> <span class="n">col3</span><span class="p">:</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">virginica_image</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Iris Virginica&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar imágenes de las flores Iris en una fila</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Imágenes de Flores Iris&#39;</span><span class="p">)</span>
+<span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="n">col3</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">columns</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Dividir el espacio horizontal en tres columnas</span>
 </pre></div>
-<div id="cell-12" class="clipboard-copy-txt">with col3:
-    st.image(virginica_image, caption='Iris Virginica', width=200)</div>
+<div id="cell-12" class="clipboard-copy-txt"># Mostrar imágenes de las flores Iris en una fila
+st.subheader('Imágenes de Flores Iris')
+col1, col2, col3 = st.columns(3)  # Dividir el espacio horizontal en tres columnas</div>
     
         </div>
     </div>
@@ -1807,19 +1847,13 @@ with col1:
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Histograma interactivo de las características</span>
-<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Histograma de Características&#39;</span><span class="p">)</span>
-<span class="n">feature</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Seleccione una característica:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar las imágenes en las columnas</span>
+<span class="k">with</span> <span class="n">col1</span><span class="p">:</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">setosa_image</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Iris Setosa&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
-<div id="cell-13" class="clipboard-copy-txt"># Histograma interactivo de las características
-st.subheader('Histograma de Características')
-feature = st.selectbox('Seleccione una característica:', iris.feature_names)
-plt.figure()
-sns.histplot(iris_df[feature], bins=30, kde=True)
-st.pyplot(plt)</div>
+<div id="cell-13" class="clipboard-copy-txt"># Mostrar las imágenes en las columnas
+with col1:
+    st.image(setosa_image, caption='Iris Setosa', width=200)</div>
     
         </div>
     </div>
@@ -1849,21 +1883,11 @@ st.pyplot(plt)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Gráfico interactivo de dispersión</span>
-<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Gráfico de Dispersión&#39;</span><span class="p">)</span>
-<span class="n">x_axis</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Seleccione una característica para el eje X:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
-<span class="n">y_axis</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Seleccione una característica para el eje Y:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_axis</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;target_name&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
-<span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">with</span> <span class="n">col2</span><span class="p">:</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">versicolor_image</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Iris Versicolor&#39;</span><span class="p">,</span>  <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
-<div id="cell-14" class="clipboard-copy-txt"># Gráfico interactivo de dispersión
-st.subheader('Gráfico de Dispersión')
-x_axis = st.selectbox('Seleccione una característica para el eje X:', iris.feature_names)
-y_axis = st.selectbox('Seleccione una característica para el eje Y:', iris.feature_names)
-plt.figure()
-sns.scatterplot(data=iris_df, x=x_axis, y=y_axis, hue='target_name', palette='viridis')
-st.pyplot(plt)</div>
+<div id="cell-14" class="clipboard-copy-txt">with col2:
+    st.image(versicolor_image, caption='Iris Versicolor',  width=200)</div>
     
         </div>
     </div>
@@ -1893,17 +1917,11 @@ st.pyplot(plt)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Información sobre los tipos de flores Iris</span>
-<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Información de las Flores Iris&#39;</span><span class="p">)</span>
-<span class="n">flower_id</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="s1">&#39;Seleccione un ID de flor:&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Nombre de la flor:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">flower_id</span><span class="p">])</span>
-<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Cantidad de muestras:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">flower_id</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="k">with</span> <span class="n">col3</span><span class="p">:</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">image</span><span class="p">(</span><span class="n">virginica_image</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s1">&#39;Iris Virginica&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </pre></div>
-<div id="cell-15" class="clipboard-copy-txt"># Información sobre los tipos de flores Iris
-st.subheader('Información de las Flores Iris')
-flower_id = st.slider('Seleccione un ID de flor:', 0, len(iris.target_names)-1)
-st.write('Nombre de la flor:', iris.target_names[flower_id])
-st.write('Cantidad de muestras:', (iris.target == flower_id).sum())</div>
+<div id="cell-15" class="clipboard-copy-txt">with col3:
+    st.image(virginica_image, caption='Iris Virginica', width=200)</div>
     
         </div>
     </div>
@@ -1933,13 +1951,19 @@ st.write('Cantidad de muestras:', (iris.target == flower_id).sum())</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar el conjunto de datos completo si se desea</span>
-<span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s1">&#39;Mostrar Conjunto de Datos Completo&#39;</span><span class="p">):</span>
-    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">iris_df</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Histograma interactivo de las características</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Histograma de Características&#39;</span><span class="p">)</span>
+<span class="n">feature</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Seleccione una característica:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">iris_df</span><span class="p">[</span><span class="n">feature</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
 </pre></div>
-<div id="cell-16" class="clipboard-copy-txt"># Mostrar el conjunto de datos completo si se desea
-if st.checkbox('Mostrar Conjunto de Datos Completo'):
-    st.write(iris_df)</div>
+<div id="cell-16" class="clipboard-copy-txt"># Histograma interactivo de las características
+st.subheader('Histograma de Características')
+feature = st.selectbox('Seleccione una característica:', iris.feature_names)
+plt.figure()
+sns.histplot(iris_df[feature], bins=30, kde=True)
+st.pyplot(plt)</div>
     
         </div>
     </div>
@@ -1969,10 +1993,130 @@ if st.checkbox('Mostrar Conjunto de Datos Completo'):
                 </div>
             </clipboard-copy>
         </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Gráfico interactivo de dispersión</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Gráfico de Dispersión&#39;</span><span class="p">)</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Seleccione una característica para el eje X:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">y_axis</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">selectbox</span><span class="p">(</span><span class="s1">&#39;Seleccione una característica para el eje Y:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x_axis</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_axis</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;target_name&#39;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">pyplot</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
+</pre></div>
+<div id="cell-17" class="clipboard-copy-txt"># Gráfico interactivo de dispersión
+st.subheader('Gráfico de Dispersión')
+x_axis = st.selectbox('Seleccione una característica para el eje X:', iris.feature_names)
+y_axis = st.selectbox('Seleccione una característica para el eje Y:', iris.feature_names)
+plt.figure()
+sns.scatterplot(data=iris_df, x=x_axis, y=y_axis, hue='target_name', palette='viridis')
+st.pyplot(plt)</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-18">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Información sobre los tipos de flores Iris</span>
+<span class="n">st</span><span class="o">.</span><span class="n">subheader</span><span class="p">(</span><span class="s1">&#39;Información de las Flores Iris&#39;</span><span class="p">)</span>
+<span class="n">flower_id</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">slider</span><span class="p">(</span><span class="s1">&#39;Seleccione un ID de flor:&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Nombre de la flor:&#39;</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">flower_id</span><span class="p">])</span>
+<span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Cantidad de muestras:&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="o">==</span> <span class="n">flower_id</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+<div id="cell-18" class="clipboard-copy-txt"># Información sobre los tipos de flores Iris
+st.subheader('Información de las Flores Iris')
+flower_id = st.slider('Seleccione un ID de flor:', 0, len(iris.target_names)-1)
+st.write('Nombre de la flor:', iris.target_names[flower_id])
+st.write('Cantidad de muestras:', (iris.target == flower_id).sum())</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-19">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
+            <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Mostrar el conjunto de datos completo si se desea</span>
+<span class="k">if</span> <span class="n">st</span><span class="o">.</span><span class="n">checkbox</span><span class="p">(</span><span class="s1">&#39;Mostrar Conjunto de Datos Completo&#39;</span><span class="p">):</span>
+    <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">iris_df</span><span class="p">)</span>
+</pre></div>
+<div id="cell-19" class="clipboard-copy-txt"># Mostrar el conjunto de datos completo si se desea
+if st.checkbox('Mostrar Conjunto de Datos Completo'):
+    st.write(iris_df)</div>
+    
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+        
+        
+        <div class="CodeMirror cm-s-jupyter">
+        <div class="zeroclipboard-container">
+            <clipboard-copy for="cell-20">
+            <div>
+                <span class="notice" hidden>Copied!</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" version="1.1"  data-view-component="true" class="clipboard-copy-icon">
+                    <path fill="currentColor" fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path>
+                    <path fill="currentColor" fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+                </svg>
+                </div>
+            </clipboard-copy>
+        </div>
             <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Pie de página</span>
 <span class="n">st</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hecho con Streamlit por Ejemplo&#39;</span><span class="p">)</span>
 </pre></div>
-<div id="cell-17" class="clipboard-copy-txt"># Pie de página
+<div id="cell-20" class="clipboard-copy-txt"># Pie de página
 st.write('Hecho con Streamlit por Ejemplo')</div>
     
         </div>
