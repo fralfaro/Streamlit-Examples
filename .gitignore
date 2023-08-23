@@ -3,7 +3,6 @@
 *.jl
 *.f
 *.pkl
-*.txt
 *__pycache__/
 .DS_Store
 .ipynb_checkpoints/
