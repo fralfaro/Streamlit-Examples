@@ -13,9 +13,9 @@ iris_df['target'] = iris.target
 iris_df['target_name'] = iris.target_names[iris.target]
 
 # Cargar imágenes de flores Iris
-setosa_image = Image.open('setosa.jpg')  # Asegúrate de tener las imágenes en la misma ubicación que este archivo
-versicolor_image = Image.open('versicolor.jpg')
-virginica_image = Image.open('virginica.jpg')
+setosa_image = Image.open('images/setosa.jpg')  # Asegúrate de tener las imágenes en la misma ubicación que este archivo
+versicolor_image = Image.open('images/versicolor.jpg')
+virginica_image = Image.open('images/virginica.jpg')
 
 
 # Cargar el conjunto de datos Iris
