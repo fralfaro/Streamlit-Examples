@@ -1,3 +1,5 @@
+
+
 # Librerias
 import time  # para simular el tiempo real, bucle de tiempo
 import numpy as np  # np significa "numpy" para cálculos numéricos
